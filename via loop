@@ -1,0 +1,28 @@
+<html>
+<head>
+ <meta charset="UTF-8">
+</head>
+<body>
+<script>
+
+
+
+function sumTo(x){
+  var result = 0;
+
+  for (var i = 1 ; i <= x  ;i++){
+    result += i;
+  };
+return result;
+ }
+alert(sumTo(100));
+
+
+
+
+
+</script>
+</body>
+
+
+</html>

@@ -1,0 +1,68 @@
+<html>
+<head>
+ <meta charset="UTF-8">
+</head>
+<body>
+<script>
+
+
+alert('We are selling cakes for 5$.If you buy 4 cakes or more you get 25% discount.');
+
+function promoCakes(cake,discountPercent){
+    this.cake = cake;//property of PromoCakes
+    this.discountPercent = discountPercent;
+}
+
+var raspCake = new promoCakes("raspberry",25);//set var with (properties)
+var appleCake = new promoCakes("apple",25);
+var x = prompt("how many raspberry cakes do you need?","0");
+var y = prompt("how many apple cakes do you need?","0");
+var num1 = parseInt(x);
+var num2 = parseInt(y);
+
+
+var totalBill = {
+    total: 0,
+    add: function(itemCost){
+        this.total += (itemCost || 0);
+    },
+    scan: function(item,quantity){
+          switch (item){
+          case "raspberry": this.add(5 * quantity); break;
+          case "apple": this.add(5 * quantity); break;
+          }
+          return true;
+    },
+    applyDiscount: function(cake){
+      this.total -= this.total * (cake.discountPercent/100)
+    }
+  };
+
+
+totalBill.scan("raspberry",x) ;
+totalBill.scan("apple",y) ;
+
+if (num1 > 4 || num2 > 4 ){
+    alert("Yes, you get 25% discount");
+    totalBill.applyDiscount(raspCake);
+    alert(totalBill.total);
+  } else if ((num1+num2) >= 4){
+    alert("Here is your discount");
+    totalBill.applyDiscount(raspCake);
+    alert(totalBill.total);
+  } else {
+    alert("May be you want some more cakes?");
+    alert(totalBill.total);
+  };
+
+
+/*line 49        ( (-x-y) <= -4 ){     at the beginning on this line I had to change to negative values
+ due to the fact that the positive numbers in the code made conflict.A t the moment i found  solution. parseInt(x);*/
+
+
+
+</script>
+</body>
+
+
+</html>

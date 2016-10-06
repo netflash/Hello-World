@@ -1,0 +1,35 @@
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<script language="javascript">
+
+var playGame = true;
+var userName = prompt('what is your name?');
+    if (userName.length <= 8 && userName.length != 0 ){
+      confirm("Do you want to catch Pikachu " + userName +" ?" );
+      alert("Now " + userName + " you see Pikachu, prepare your pokeball...You have only one try");
+    } else {
+      alert("Are you sure that you put your real name? If not please refresh the page");
+      playGame = false;
+    };
+
+    var everyTry = Math.floor(Math.random() * 3);
+
+    while(playGame){
+     if(everyTry == 0){
+     alert("Unfortunately Pikachu run away...");
+    } else if (everyTry == 1){
+     alert("Pikachu got out of the ball, and run away");
+    } else {
+     alert("Now you've got Pikachu!!!");
+    }
+     playGame = false;
+ };
+
+</script>
+
+</body>
+</html>
